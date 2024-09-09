@@ -1,0 +1,25 @@
+#!/usr/bin/env python3
+
+import sys
+
+N = sys.stdin.readline().strip()
+sum = 0
+
+check = 0
+for n in N:
+    sum += int(n)
+if int(N) % sum == 0:
+    check = 1
+    print(N)
+else:
+    M = N
+    sum = 0
+    while check == 0:
+        for m in str(M):
+            sum += int(m)
+        if int(M) % sum == 0:
+            check = 1
+        else:
+            M = int(M) + 1
+            sum = 0
+    print(M)
