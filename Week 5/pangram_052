@@ -1,0 +1,17 @@
+#!/usr/bin/env python3
+
+import sys
+
+input = [s.strip().lower() for s in sys.stdin.readlines()]
+
+def pangram(input):
+    alphabet = "abcdefghijklmnopqrstuvwxyz"
+    alphabet = set(alphabet)
+    for line in input:
+        line = set(line)
+        if alphabet <= line:
+            print("pangram")
+        else:
+            out = "".join(sorted(alphabet - line))
+            print(f'missing {out}')
+pangram(input)
