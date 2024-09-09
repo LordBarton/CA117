@@ -1,0 +1,22 @@
+#!/usr/bin/env python3
+
+import sys
+
+s = sys.stdin.readlines()
+
+def extract_lists(list):
+    for n in list:
+        n = int(n)
+        ran = range(1, n + 1)
+        res1 = [m for m in ran if not m % 3]
+        print(f'Multiples of 3: {res1}')
+        res2 = [m ** 2 for m in res1]
+        print(f'Multiples of 3 squared: {res2}')
+        res3 = [m * 2 for m in ran if not m % 4]
+        print(f'Multiples of 4 doubled: {res3}')
+        res4 = [m for m in ran if (not m % 3 or not m % 4)]
+        print(f'Multiples of 3 or 4: {res4}')
+        res5 = [m for m in ran if not m % 12]
+        print(f'Multiples of 3 and 4: {res5}')
+
+extract_lists(s)
